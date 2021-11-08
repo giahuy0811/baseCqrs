@@ -1,4 +1,4 @@
-import { Body, Controller, HttpCode, Post, UsePipes, ValidationPipe } from "@nestjs/common";
+import { Body, Controller, HttpCode, Patch, Post, UsePipes, ValidationPipe } from "@nestjs/common";
 import { CreateUserDto } from "./dto/create.user.dto";
 import { UserDomainService } from "./user.service";
 
@@ -15,4 +15,5 @@ export class UserDomainController {
     create(@Body() body:CreateUserDto) {
         return this.userDomainService.createUser(body)
     }
+
 }
