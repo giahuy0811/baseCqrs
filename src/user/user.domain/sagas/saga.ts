@@ -20,7 +20,7 @@ export class UserSagas {
             map((event:CreatedUserEvent)=>{
                 let cmd : ICommand;
                     console.log('saga')
-
+                    
                 switch(event.messagePattern){
                     case UserCommand.CREATED_USER:cmd = new CreateUserQueryCommand(
                         event.messagePattern,

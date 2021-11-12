@@ -8,6 +8,8 @@ import { ProductQueryService } from "./service";
 export class ProductQueryController {
     constructor(private readonly productService: ProductQueryService){}
   
+  
+    
     @Get('/getAll')
     findAll(){
       return this.productService.findAll()

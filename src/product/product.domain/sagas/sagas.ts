@@ -16,16 +16,15 @@ export class ProductSagas {
       ofType(CreatedProductEvent),
       map((event:CreatedProductEvent)=>{
         let cmd : ICommand;
-        console.log()
+        console.log("sagas")
         switch(event.messagePattern){
-          case ProductCommand.CREATE_PRODUCT : {
+          case ProductCommand.CREATE_PRODUCT : 
             cmd = new CreateQueryCommand(
               event.messagePattern,
               event.streamId,
               event.payload
             );
-           
-          } break;
+           break;
 
 
           default: break;

@@ -1,6 +1,5 @@
-import { Body, Controller, HttpCode, Param, Patch, Post } from "@nestjs/common";
+import { Body, Controller, HttpCode, Param, Patch, Post, UsePipes, ValidationPipe } from "@nestjs/common";
 import { Types } from "mongoose";
-import { ProductDocument } from "../shared/eventStream/model/product.interface";
 import { CreateProductDto } from "./dto/create.product.dto";
 import { UpdateProductDto } from "./dto/update.product.dto";
 import { ProductDomainService } from "./service";
@@ -15,10 +14,12 @@ export class ProductDomainController {
     
   }
 
+
+  @UsePipes(new ValidationPipe({transform:true}))
   @Post('create')
   @HttpCode(201)
-  create(@Body() body: CreateProductDto){
-      return this.productService.createProduct(body)
+  async create(@Body() body: CreateProductDto){
+      return await this.productService.createProduct(body)
   }
 
 

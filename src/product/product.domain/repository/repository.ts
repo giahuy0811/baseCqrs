@@ -21,7 +21,7 @@ export class ProductDomainRepository{
         streamId: event.streamId,
         actionName: event.messagePattern,
         payload: event.payload,
-      } as unknown as Payload<Document> )
+      } as Payload<Document> )
   }
   
 }

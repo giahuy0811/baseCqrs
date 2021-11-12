@@ -15,7 +15,7 @@ export class ProductQueryEventHandler implements IEventHandler<ProductCreatedQue
 
   private createdHandler(event: ProductCreatedQueryEvent){
     return this.repository.create({
-      _id: event.streamId,
+      _id:event.streamId,
       ...event.payload
     })
   }

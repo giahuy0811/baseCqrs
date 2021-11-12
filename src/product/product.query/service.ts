@@ -1,4 +1,5 @@
-import { Injectable } from "@nestjs/common";
+import { Body, Injectable } from "@nestjs/common";
+import { CreateProductDto } from "../product.domain/dto/create.product.dto";
 import { ProductQueryRepository } from "./repository/query.repository";
 
 
@@ -9,6 +10,10 @@ export class ProductQueryService {
     private readonly repository:ProductQueryRepository
   ){}
 
+
+  create(@Body() product:CreateProductDto){
+    return this.repository.create(product)
+  }
 
   findAll(){
     return this.repository.findAll()
